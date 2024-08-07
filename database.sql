@@ -26,8 +26,10 @@ CREATE TABLE Products (
     category VARCHAR(50) NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
     stock_quantity INT NOT NULL,
+    image VARCHAR(255),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
 
 -- Create Orders table
 CREATE TABLE Orders (

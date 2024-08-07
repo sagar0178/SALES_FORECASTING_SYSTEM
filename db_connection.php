@@ -4,7 +4,7 @@ define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASSWORD', '');
 define('DB_NAME', 'sales_forecasting_system');
-define('DB_PORT', 3306); // Added port configuration
+define('DB_PORT', 3307); // Added port configuration
 
 // Create a new MySQLi connection
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, DB_PORT);
