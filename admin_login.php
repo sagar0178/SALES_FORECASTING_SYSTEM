@@ -56,9 +56,6 @@ $conn->close();
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-    body {
-        background-color: #abb8c3;
-    }
 
     .login-container {
         max-width: 400px;
@@ -69,8 +66,8 @@ $conn->close();
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
-    .btn-danger {
-        background-color: red;
+    .btn-primary {
+        background-color: rgb(94, 31, 237);
         border: none;
     }
 
@@ -80,33 +77,21 @@ $conn->close();
         right: 20px;
         z-index: 1050;
     }
+    .password-wrapper {
+        position: relative;
+    }
+
+    .toggle-password {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
     </style>
 </head>
 
 <body>
-    <!-- Top Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Admin Panel</a>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-                            <path fill="currentColor"
-                                d="M8.645 20.5a3.502 3.502 0 0 0 6.71 0zM3 19.5h18v-3l-2-3v-5a7 7 0 1 0-14 0v5l-2 3z" />
-                        </svg>
-                        Notifications
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="fas fa-user"></i> Profile
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
     <div class="login-container">
         <h2 class="text-center">Admin Login</h2>
         <?php if ($login_error) : ?>
@@ -122,11 +107,11 @@ $conn->close();
                 <label for="adminid">Username</label>
                 <input type="text" class="form-control" id="adminid" name="adminid" required>
             </div>
-            <div class="form-group">
+            <div class="form-group password-wrapper">
                 <label for="password">Password</label>
                 <input type="password" class="form-control" id="password" name="password" required>
             </div>
-            <button type="submit" class="btn btn-danger btn-block">Login</button>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
         </form>
     </div>
 
