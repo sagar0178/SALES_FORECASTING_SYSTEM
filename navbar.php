@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<?php
+session_start();
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header("Location: login.php");
+    exit;
+}
+?>
 <html lang="en">
 
 <head>
@@ -8,20 +15,20 @@
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* Ensure the dropdown menu fits within the viewport */
-        .dropdown-menu {
-            position: absolute;
-            /* Ensure it's positioned relative to the parent */
-            transform: translateX(-40%);
-            /* Center the menu horizontally */
-            left: 0;
-            /* Start from the left edge of the parent */
-        }
+    /* Ensure the dropdown menu fits within the viewport */
+    .dropdown-menu {
+        position: absolute;
+        /* Ensure it's positioned relative to the parent */
+        transform: translateX(-40%);
+        /* Center the menu horizontally */
+        left: 0;
+        /* Start from the left edge of the parent */
+    }
 
-        /* Additional styles to handle viewport overflow */
-        .dropdown-menu.show {
-            display: block;
-        }
+    /* Additional styles to handle viewport overflow */
+    .dropdown-menu.show {
+        display: block;
+    }
     </style>
 </head>
 
@@ -66,36 +73,36 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var dropdownToggle = document.getElementById('navbarDropdown');
-            var dropdownMenu = dropdownToggle.nextElementSibling;
+    document.addEventListener('DOMContentLoaded', function() {
+        var dropdownToggle = document.getElementById('navbarDropdown');
+        var dropdownMenu = dropdownToggle.nextElementSibling;
 
-            function adjustDropdownPosition() {
-                var rect = dropdownToggle.getBoundingClientRect();
-                var menuWidth = dropdownMenu.offsetWidth;
-                var viewportWidth = window.innerWidth;
+        function adjustDropdownPosition() {
+            var rect = dropdownToggle.getBoundingClientRect();
+            var menuWidth = dropdownMenu.offsetWidth;
+            var viewportWidth = window.innerWidth;
 
-                if (rect.left + menuWidth > viewportWidth) {
-                    dropdownMenu.style.left = 'auto';
-                    dropdownMenu.style.right = '0';
-                } else {
-                    dropdownMenu.style.left = '0';
-                    dropdownMenu.style.right = 'auto';
-                }
+            if (rect.left + menuWidth > viewportWidth) {
+                dropdownMenu.style.left = 'auto';
+                dropdownMenu.style.right = '0';
+            } else {
+                dropdownMenu.style.left = '0';
+                dropdownMenu.style.right = 'auto';
             }
+        }
 
-            dropdownToggle.addEventListener('click', function () {
-                adjustDropdownPosition();
-                // Toggle menu visibility
-                if (dropdownMenu.classList.contains('show')) {
-                    dropdownMenu.classList.remove('show');
-                } else {
-                    dropdownMenu.classList.add('show');
-                }
-            });
-
-            window.addEventListener('resize', adjustDropdownPosition);
+        dropdownToggle.addEventListener('click', function() {
+            adjustDropdownPosition();
+            // Toggle menu visibility
+            if (dropdownMenu.classList.contains('show')) {
+                dropdownMenu.classList.remove('show');
+            } else {
+                dropdownMenu.classList.add('show');
+            }
         });
+
+        window.addEventListener('resize', adjustDropdownPosition);
+    });
     </script>
 </body>
 

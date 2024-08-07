@@ -1,7 +1,7 @@
 $(document).ready(function () {
     // Sample data for charts
     var salesData = {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
         datasets: [{
             label: 'Sales',
             backgroundColor: 'rgba(255, 99, 132, 0.2)',
@@ -9,12 +9,12 @@ $(document).ready(function () {
             borderWidth: 1,
             hoverBackgroundColor: 'rgba(255, 99, 132, 0.4)',
             hoverBorderColor: 'rgba(255, 99, 132, 1)',
-            data: [65, 59, 80, 81, 56, 55, 40],
+            data: [65, 33, 43, 23, 45, 23, 59, 80, 81, 56, 55, 40],
         }]
     };
 
     var forecastData = {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
         datasets: [{
             label: 'Forecast',
             backgroundColor: 'rgba(54, 162, 235, 0.2)',
@@ -22,7 +22,7 @@ $(document).ready(function () {
             borderWidth: 1,
             hoverBackgroundColor: 'rgba(54, 162, 235, 0.4)',
             hoverBorderColor: 'rgba(54, 162, 235, 1)',
-            data: [28, 48, 40, 19, 86, 27, 90],
+            data: [28, 48, 77, 45, 44, 54, 94, 40, 19, 86, 27, 90],
         }]
     };
 
