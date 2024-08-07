@@ -5,6 +5,12 @@ require 'db_connection.php'; // Adjust the path to your database connection scri
 // Initialize variables
 $login_error = "";
 
+// Check if the user is already logged in
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+    header("Location: admin.html");
+    exit;
+}
+
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $adminid = trim($_POST['adminid']);
@@ -78,6 +84,29 @@ $conn->close();
 </head>
 
 <body>
+    <!-- Top Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Admin Panel</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="M8.645 20.5a3.502 3.502 0 0 0 6.71 0zM3 19.5h18v-3l-2-3v-5a7 7 0 1 0-14 0v5l-2 3z" />
+                        </svg>
+                        Notifications
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-user"></i> Profile
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
     <div class="login-container">
         <h2 class="text-center">Admin Login</h2>
         <?php if ($login_error) : ?>
